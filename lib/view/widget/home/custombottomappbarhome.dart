@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/homescreen_controller.dart';
+import '../../../controller/orders/archive_controller.dart';
 import 'custombuttonappbar.dart';
 
 class CustomBottomAppBarHome extends StatelessWidget {
@@ -24,6 +25,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                         controller.changePage(index);
 
                         Get.delete<OrdersAcceptedController>();
+                        Get.delete<OrdersArchiveController>();
                       },
                       active: controller.currentPage == index ? true : false,
                       icondata: controller.bottomappbar[index]['icon'],
