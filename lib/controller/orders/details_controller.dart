@@ -3,10 +3,12 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../core/class/statuscode.dart';
+import '../../core/constant/routes.dart';
 import '../../core/functions/handlingdatacontroller.dart';
 import '../../data/datasource/remote/orders/details_data.dart';
 import '../../data/model/ordersdetailsmodel.dart';
 import '../../data/model/ordersmodel.dart';
+import '../tracking_controller.dart';
 
 class OrdersDetailsController extends GetxController {
   OrdersDetailsData ordersDetailsData = OrdersDetailsData(Get.find());
@@ -16,6 +18,12 @@ class OrdersDetailsController extends GetxController {
       Completer<GoogleMapController>();
   CameraPosition? cameraPosition;
   Set<Marker> markers = {};
+  // enableTracking(OrdersModel ordersModel) {
+  //   TrackingController controller = Get.put(TrackingController());
+  //   controller.ordersModel = ordersModel;
+  //   Get.toNamed(AppRoute.tracking);
+  // }
+
   initialData() {
     if (ordersModel.ordersType == "0") {
       cameraPosition = CameraPosition(

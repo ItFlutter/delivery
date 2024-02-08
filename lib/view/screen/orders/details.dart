@@ -1,3 +1,6 @@
+import 'package:delivery/controller/tracking_controller.dart';
+import 'package:delivery/core/constant/routes.dart';
+import 'package:delivery/core/shared/custombutton.dart';
 import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -11,6 +14,7 @@ class OrdersDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(Get.currentRoute);
     OrdersDetailsController controller = Get.put(OrdersDetailsController());
     return Scaffold(
       appBar: AppBar(title: Text("147".tr)),
@@ -106,6 +110,20 @@ class OrdersDetails extends StatelessWidget {
                         },
                       ),
                     ),
+                  ),
+                const SizedBox(
+                  height: 10,
+                ),
+                if (controller.ordersModel.ordersType == "0" &&
+                    controller.ordersModel.ordersStatus == "3")
+                  CustomButton(
+                    text: "156".tr,
+                    onPressed: () {
+                      // controller.enableTracking(controller.ordersModel);
+                      Get.toNamed(AppRoute.tracking,
+                          arguments: {"ordresmodel": controller.ordersModel});
+                      // Get.toNamed(AppRoute.tracking);
+                    },
                   )
               ]),
             ),

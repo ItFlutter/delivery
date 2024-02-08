@@ -162,6 +162,8 @@ class MyTranslation extends Translations {
           "153": "الموافقة",
           "154": "قبول",
           "155": "انهاء",
+          "156": "تتبع",
+          "157": "تتبع الطلبات",
         },
         "en": {
           "1": "Choose Language",
@@ -324,6 +326,8 @@ class MyTranslation extends Translations {
           "153": "Accepted",
           "154": "Approval",
           "155": "Done",
+          "156": "Tracking",
+          "157": "Orders Tracking",
         },
       };
 }

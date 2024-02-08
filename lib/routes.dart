@@ -7,6 +7,9 @@ import 'package:delivery/view/screen/auth/successsignup.dart';
 import 'package:delivery/view/screen/auth/verifycodesignup.dart';
 import 'package:delivery/view/screen/language.dart';
 import 'package:delivery/view/screen/orders/details.dart';
+import 'package:delivery/view/screen/orders/tracking.dart';
+import 'package:delivery/view/screen/test.dart';
+import 'package:delivery/view/screen/test2.dart';
 import 'package:get/get.dart';
 import 'core/constant/routes.dart';
 import 'core/middleware/mymiddleware.dart';
@@ -16,6 +19,16 @@ import 'view/screen/homescreen.dart';
 List<GetPage<dynamic>>? routes = [
   GetPage(
       name: "/", page: () => const Language(), middlewares: [MyMiddleWare()]),
+  // GetPage(
+  //   name: "/",
+  //   page: () => const Test(),
+  // ),
+  //TEST
+
+  GetPage(
+    name: AppRoute.test2,
+    page: () => const Test2(),
+  ),
   //Auth
   GetPage(name: AppRoute.signUp, page: () => const SignUp()),
   GetPage(name: AppRoute.login, page: () => const Login()),
@@ -32,4 +45,6 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.homepage, page: () => const HomeScreen()),
   //Orders
   GetPage(name: AppRoute.ordersdetails, page: () => const OrdersDetails()),
+  //Tracking
+  GetPage(name: AppRoute.tracking, page: () => const OrdersTracking()),
 ];

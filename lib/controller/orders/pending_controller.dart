@@ -5,8 +5,10 @@ import '../../core/functions/handlingdatacontroller.dart';
 import '../../core/sevices/sevices.dart';
 import '../../data/datasource/remote/orders/pending_data.dart';
 import '../../data/model/ordersmodel.dart';
+import '../tracking_controller.dart';
 
 class OrdersPendingController extends GetxController {
+  OrdersModel? ordersModel;
   MyServices myservices = Get.find();
   OrdersPendingData ordersPendingData = OrdersPendingData(Get.find());
   late StatusRequest statusRequest;
@@ -60,6 +62,11 @@ class OrdersPendingController extends GetxController {
     update();
   }
 
+  // enableTracking(OrdersModel ordersModel) {
+  //   TrackingController controller = Get.put(TrackingController());
+  //   controller.ordersModel = ordersModel;
+  // }
+
   approveOrders(String ordersid, String usersid) async {
     // data.clear();
     statusRequest = StatusRequest.loading;
@@ -75,6 +82,7 @@ class OrdersPendingController extends GetxController {
       if (response['status'] == "failure") {
         statusRequest = StatusRequest.failure;
       } else {
+        // TrackingController trackingController = Get.put(TrackingController());
         // data.removeWhere((element) => element.ordersId == ordersid);
       }
     }

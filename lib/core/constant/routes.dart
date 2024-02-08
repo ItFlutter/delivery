@@ -1,4 +1,6 @@
 class AppRoute {
+  //TEST
+  static const String test2 = "/test2";
   //AUTH
   static const String login = "/login";
   static const String signUp = "/signup";
@@ -16,4 +18,6 @@ class AppRoute {
   static const String orderspending = "/orderspending";
   static const String ordersdetails = "/ordersdetails";
   static const String ordersarchive = "/ordersarchive";
+  //Tracking
+  static const String tracking = "/tracking";
 }

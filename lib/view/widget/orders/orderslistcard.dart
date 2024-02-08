@@ -1,3 +1,4 @@
+import 'package:delivery/controller/tracking_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
@@ -72,8 +73,19 @@ class CardOrderList extends GetView<OrdersPendingController> {
                     if (listdata.ordersStatus == "2")
                       MaterialButton(
                         onPressed: () {
-                          controller.approveOrders(
-                              listdata.ordersId!, listdata.ordersUsersid!);
+                          if (controller.ordersModel == null) {
+                            controller.approveOrders(
+                                listdata.ordersId!, listdata.ordersUsersid!);
+                            controller.ordersModel =
+                                Get.put<OrdersModel>(listdata);
+                            Get.put(TrackingController());
+                            // controller.enableTracking(listdata);
+                          } else {
+                            Get.defaultDialog(
+                                title: "Error",
+                                middleText:
+                                    "You cannot receive more than one Order");
+                          }
                         },
                         textColor: AppColor.secondryColor,
                         color: AppColor.thridColor,
